@@ -1,0 +1,222 @@
+<head>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        
+        #div1,
+        #div2,
+        #div3,
+        #div4,
+        #div5,
+        #div6,
+        #div7,
+        #div8,
+        #div9 {
+            width: 33%;
+            height: 33%;
+            border: 1px solid #aaaaaa;
+            display: flex;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+        }
+        
+        #drag1 {
+            background-color: green;
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+            text-align: center;
+        }
+        
+        #drag2 {
+            background-color: rgb(79, 88, 175);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag3 {
+            background-color: rgb(142, 185, 72);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag4 {
+            background-color: rgb(150, 45, 45);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag5 {
+            background-color: rgb(209, 136, 27);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag6 {
+            background-color: rgb(41, 157, 211);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag7 {
+            background-color: rgb(155, 226, 21);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag8 {
+            background-color: rgb(230, 19, 166);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        #drag9 {
+            background-color: rgb(190, 144, 190);
+            height: 50%;
+            width: 50%;
+            color: azure;
+            display: table-cell;
+            vertical-align: middle;
+            top: 20%;
+            margin-top: 48px;
+            margin-left: 63px;
+        }
+        
+        .dashed {
+            background: rgb(214, 206, 206);
+            border: 2px dashed black;
+        }
+        
+        .hide {
+            display: none;
+            border: none;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("src", ev.target.id);
+            ev.target.className += ' dashed';
+            setTimeout(() => {
+                ev.target.className = 'hide';
+            }, 2500);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var src = document.getElementById(ev.dataTransfer.getData("src"));
+            var srcParent = src.parentNode;
+            var tgt = ev.currentTarget.firstElementChild;
+            ev.currentTarget.replaceChild(src, tgt);
+            srcParent.appendChild(tgt);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag1" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>100</p>
+        </div>
+    </div>
+    <br>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag2" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>200</p>
+        </div>
+    </div>
+    <br>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag3" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>300</p>
+        </div>
+    </div>
+    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag4" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>400</p>
+        </div>
+    </div>
+    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag5" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>500</p>
+        </div>
+    </div>
+    <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag6" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>600</p>
+        </div>
+    </div>
+    <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag7" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>700</p>
+        </div>
+    </div>
+    <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag8" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>800</p>
+        </div>
+    </div>
+    <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="drag9" src="https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg" draggable="true" ondragstart="drag(event)">
+            <p>900</p>
+        </div>
+    </div>
+</body>
